@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Compras</h1>
+    <script>
+        async function buscarCompras(){
+           const response=fetch('http://localhost:3333/compras',{
+            method: 'GET'
+            })
+            const data= await response.json()
+            console.log(data)
+        }
+        async function cadastrasCompra(){
+           const response=fetch('http://localhost:3333/compras',{
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json'
+             }
+            }
+           )
+           const data= await response.json()
+           console.log(data)
+        }
+    </script>
+    <button onclick="buscarCompras()">
+        Buscar compras
+    </button>
+    <br>
+    <br>
+    <br>
+    <input type="text" id="name" placeholder="Digite o nome">
+    <input type="text" id="price" placeholder="Digite o preço">
+    <input type="text" id="description" placeholder="Digite a descição">
+    <button onclick="cadastrasCompra()">
+        Cadastrar
+    </button>
+</body>
+</html>
