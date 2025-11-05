@@ -9,7 +9,7 @@
     <h1>Compras</h1>
     <script>
         async function buscarCompras(){
-           const response=fetch('http://localhost:3333/compras',{
+           const response= await fetch('http://localhost:3333/compras',{
             method: 'GET'
             })
             const data= await response.json()
@@ -24,11 +24,12 @@
                 name, price, description
             }
 
-           const response=fetch('http://localhost:3333/compras',{
+           const response= await fetch('http://localhost:3333/compras',{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'
-             }
+             },
+             body:JSON.stringify(payload)
             }
            )
            const data= await response.json()
