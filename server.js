@@ -25,7 +25,7 @@ server.post('/compras', async (req, reply) => {
         [body.name, body.price, body.description]
     )
 
-    return { response: 'Deu bom!' }
+    return { response: 'Deu bom (ou sera que nao...)!' }
 })
 
 server.listen({
