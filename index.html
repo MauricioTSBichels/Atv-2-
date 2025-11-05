@@ -15,7 +15,15 @@
             const data= await response.json()
             console.log(data)
         }
-        async function cadastrasCompra(){
+        async function cadastrarCompra(){
+            const name=document.getElementById('name').value;
+            const price=document.getElementById('price').value;
+            const description=document.getElementById('description').value;
+
+            const payload={
+                name, price, description
+            }
+
            const response=fetch('http://localhost:3333/compras',{
             method: 'POST',
             headers:{
@@ -36,7 +44,7 @@
     <input type="text" id="name" placeholder="Digite o nome">
     <input type="text" id="price" placeholder="Digite o preço">
     <input type="text" id="description" placeholder="Digite a descição">
-    <button onclick="cadastrasCompra()">
+    <button onclick="cadastrarCompra()">
         Cadastrar
     </button>
 </body>
